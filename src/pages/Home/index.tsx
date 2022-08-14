@@ -10,10 +10,10 @@ export function Home() {
       <Profile />
       <SearchForm />
       <PostsArea>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card postId="1" />
+        <Card postId="2" />
+        <Card postId="3" />
+        <Card postId="4" />
       </PostsArea>
     </HomeContainer>
   )

@@ -17,6 +17,7 @@ export const defaultTheme = {
     'title-medium': '1.25rem',
     'title-small': '1.125rem',
     'text-medium': '1rem',
-    'text-small': '0.875rem'
+    'text-small': '0.875rem',
+    'link': '0.75rem',
   }
 } as const

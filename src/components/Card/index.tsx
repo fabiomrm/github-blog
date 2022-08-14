@@ -1,8 +1,12 @@
 import { CardBody, CardContainer, CardHeader } from "./styles";
 
-export function Card() {
+interface CardProps {
+  postId: string | number;
+}
+
+export function Card({ postId }: CardProps) {
   return (
-    <CardContainer to="/">
+    <CardContainer to={`/posts/${postId}`}>
       <CardHeader>
         <h2>Strong data types and data structures</h2>
         <span>Há 1 dia</span>

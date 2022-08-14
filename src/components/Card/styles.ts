@@ -6,9 +6,7 @@ export const CardContainer = styled(Link)`
   border: 1px solid ${({ theme }) => theme.colors["gray-600"]};
   border-radius: 10px;
   padding: 2rem;
-  height: 16.25rem;
-  border: 1px solid #f00;
-  
+  height: 16.25rem;  
 `;
 
 export const CardHeader = styled.div`
