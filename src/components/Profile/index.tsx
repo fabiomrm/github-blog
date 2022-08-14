@@ -2,6 +2,10 @@ import { ArrowSquareOut } from "phosphor-react";
 import { Tag } from "../Tag";
 import { ProfileContainer, TagsArea, TextContentArea, TextContentBody, TextContentHeader } from "./styles";
 
+import githubLogo from '../../assets/github-icon.svg';
+import buildingLogo from '../../assets/building-icon.svg';
+import userLogo from '../../assets/user-icon.svg';
+
 export function Profile() {
   return (
     <ProfileContainer>
@@ -18,9 +22,10 @@ export function Profile() {
           <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
         </TextContentBody>
         <TagsArea>
-          <Tag />
-          <Tag />
-          <Tag />
+          <Tag icon={githubLogo} text="fabiomrm" />
+          <Tag icon={buildingLogo} text="fabiomrm" />
+          <Tag icon={userLogo} text="32 seguidores" />
+
         </TagsArea>
       </TextContentArea>
     </ProfileContainer>

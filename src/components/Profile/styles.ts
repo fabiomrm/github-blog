@@ -6,6 +6,8 @@ export const ProfileContainer = styled.section`
   padding: 2rem;
   background-color: ${({ theme }) => theme.colors["gray-700"]};
   border-radius: 10px;
+  margin-top: -4rem;
+  margin-bottom: 4.5rem;
 
   img {
     width: 9.25rem;
@@ -50,4 +52,10 @@ export const TagsArea = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 1.5rem;
+
+  img.logo {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;
