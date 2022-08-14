@@ -1,13 +1,17 @@
-import { useState } from 'react'
+import { ThemeProvider } from "styled-components"
+import { Home } from "./pages/Home"
+import { GlobalStyle } from "./styles/global"
+import { defaultTheme } from "./styles/themes/default"
+
 
 
 function App() {
 
-
   return (
-    <div className="App">
-
-    </div>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
+      <Home />
+    </ThemeProvider>
   )
 }
 
