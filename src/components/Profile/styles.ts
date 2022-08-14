@@ -50,4 +50,10 @@ export const TagsArea = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 1.5rem;
+
+  img.logo {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;
