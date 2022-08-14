@@ -7,6 +7,7 @@ export const ProfileContainer = styled.section`
   background-color: ${({ theme }) => theme.colors["gray-700"]};
   border-radius: 10px;
   margin-top: -4rem;
+  margin-bottom: 4.5rem;
 
   img {
     width: 9.25rem;
