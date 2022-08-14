@@ -21,4 +21,15 @@ export const GlobalStyle = createGlobalStyle`
     font: 400 1rem Nunito, sans-serif;
   }
 
+  ul {
+    list-style: none;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    cursor: pointer;
+  }
+
 `;
