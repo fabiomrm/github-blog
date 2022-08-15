@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const TagContainer = styled.div`
+export const TagContainer = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;

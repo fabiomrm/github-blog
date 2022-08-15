@@ -1,16 +1,24 @@
 import { TagContainer } from "./styles";
-import githubLogo from '../../assets/github-icon.svg';
+
 
 interface TagProps {
-  icon: string;
+  icon: string | React.ReactNode;
   text: string;
+  href?: string;
 }
 
-export function Tag({ icon, text }: TagProps) {
+export function Tag({ icon, text, href }: TagProps) {
   return (
-    <TagContainer>
-      <img src={icon} alt="" className="logo" />
-      <span>{text}</span>
-    </TagContainer>
+    <TagContainer href={href} target="_blank" >
+      <>
+        {typeof icon === 'string' ? (
+          <img src={icon} alt="" className="logo" />
+        ) : (
+          icon
+        )
+        }
+        <span>{text}</span>
+      </>
+    </TagContainer >
   )
 }
