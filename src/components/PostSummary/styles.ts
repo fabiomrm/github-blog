@@ -9,7 +9,7 @@ export const PostSummaryContainer = styled.div`
   background-color: ${({ theme }) => theme.colors["gray-700"]};
   border-radius: 10px;
   margin-top: -4rem;
-  margin-bottom: 4.5rem;
+  /* margin-bottom: 4.5rem; */
 `;
 
 export const PostSummaryOptions = styled.div`
