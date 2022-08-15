@@ -22,7 +22,7 @@ export function Profile() {
           <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
         </TextContentBody>
         <TagsArea>
-          <Tag icon={githubLogo} text="fabiomrm" />
+          <Tag icon={githubLogo} text="fabiomrm" href="https://github.com/fabiomrm" />
           <Tag icon={buildingLogo} text="fabiomrm" />
           <Tag icon={userLogo} text="32 seguidores" />
 
