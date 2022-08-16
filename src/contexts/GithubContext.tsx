@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { api } from "../api/api";
+import { api, dogApi } from "../api/api";
 
 const USERNAME = "fabiomrm"
+const REPO = "github-blog-posts"
 
 interface User {
   id: number;
@@ -14,8 +15,17 @@ interface User {
   url: string;
 }
 
+export interface Post {
+  id: number;
+  title: string;
+  user: User;
+  body: string;
+  created_at: string;
+}
+
 interface GithubContextType {
   user: User;
+  posts: Post[];
 }
 
 export const GithubContext = createContext({} as GithubContextType);
@@ -23,6 +33,9 @@ export const GithubContext = createContext({} as GithubContextType);
 export function GithubContextProvider({ children }: { children: React.ReactNode }) {
 
   const [user, setUser] = useState<User>({} as User);
+  const [posts, setPosts] = useState<Post[]>([]);
+
+
 
 
   async function fetchUser() {
@@ -31,16 +44,28 @@ export function GithubContextProvider({ children }: { children: React.ReactNode 
     setUser(data);
   }
 
+  async function fetchPosts() {
+    const response = await api.get(`search/issues?q=repo:${USERNAME}/${REPO}`)
+    const { data } = response
+
+    setPosts(data.items)
+  }
+
+
 
   useEffect(() => {
     fetchUser()
+  }, [])
+
+  useEffect(() => {
+    fetchPosts();
   }, [])
 
 
 
 
   return (
-    <GithubContext.Provider value={{ user }}>
+    <GithubContext.Provider value={{ user, posts }}>
       {children}
     </GithubContext.Provider>
   )

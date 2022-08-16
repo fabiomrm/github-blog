@@ -17,7 +17,7 @@ export const ProfileContainer = styled.section`
 `;
 
 export const TextContentArea = styled.div`
-  
+  width: 100%;;
 `;
 
 export const TextContentHeader = styled.div`
