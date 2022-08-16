@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../api/api";
 
 const USERNAME = "fabiomrm"
@@ -7,8 +7,11 @@ interface User {
   id: number;
   name: string;
   login: string;
+  avatar_url: string;
+  bio: string | null;
   company: string | null;
   followers: number;
+  url: string;
 }
 
 interface GithubContextType {
@@ -19,10 +22,13 @@ export const GithubContext = createContext({} as GithubContextType);
 
 export function GithubContextProvider({ children }: { children: React.ReactNode }) {
 
+  const [user, setUser] = useState<User>({} as User);
+
+
   async function fetchUser() {
     const response = await api.get(`users/${USERNAME}`)
     const { data } = response;
-    console.log(data)
+    setUser(data);
   }
 
 
@@ -34,7 +40,7 @@ export function GithubContextProvider({ children }: { children: React.ReactNode 
 
 
   return (
-    <GithubContext.Provider value={{}}>
+    <GithubContext.Provider value={{ user }}>
       {children}
     </GithubContext.Provider>
   )
