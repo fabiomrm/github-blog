@@ -5,12 +5,10 @@ import commentIcon from '../../assets/comment-icon.svg';
 import { ArrowSquareOut, CalendarBlank, ChatCircle } from "phosphor-react";
 import githubIcon from '../../assets/github-icon.svg';
 import { Tag } from "../Tag";
-import { useTheme } from "styled-components";
+
 
 
 export function PostSummary() {
-
-  const theme = useTheme()
 
   return (
     <PostSummaryContainer>

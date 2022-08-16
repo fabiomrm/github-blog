@@ -5,26 +5,30 @@ import { ProfileContainer, TagsArea, TextContentArea, TextContentBody, TextConte
 import githubLogo from '../../assets/github-icon.svg';
 import buildingLogo from '../../assets/building-icon.svg';
 import userLogo from '../../assets/user-icon.svg';
+import { useGithub } from "../../contexts/GithubContext";
 
 export function Profile() {
+
+  const { user } = useGithub();
+
   return (
     <ProfileContainer>
-      <img src="https://github.com/fabiomrm.png" alt="avatar" />
+      <img src={user.avatar_url} alt="avatar" />
       <TextContentArea>
         <TextContentHeader>
-          <strong>Fábio Monteiro</strong>
+          <strong>{user.name}</strong>
           <span>
             GITHUB
             <ArrowSquareOut size={12} />
           </span>
         </TextContentHeader>
         <TextContentBody>
-          <p>Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.</p>
+          <p>{user.bio}</p>
         </TextContentBody>
         <TagsArea>
-          <Tag icon={githubLogo} text="fabiomrm" href="https://github.com/fabiomrm" />
-          <Tag icon={buildingLogo} text="fabiomrm" />
-          <Tag icon={userLogo} text="32 seguidores" />
+          <Tag icon={githubLogo} text={user.login} href={user.url} />
+          <Tag icon={buildingLogo} text={`${user.company ? user.company : "-"}`} />
+          <Tag icon={userLogo} text={`${user.followers} seguidor${user.followers > 1 && "es"}`} />
 
         </TagsArea>
       </TextContentArea>
