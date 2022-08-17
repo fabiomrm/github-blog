@@ -2,13 +2,17 @@ import { PostSummaryContainer, PostSummaryHeader, PostSummaryOptions, TagsArea }
 import arrowLeftImg from '../../assets/arrow-left.svg';
 import calendarIcon from '../../assets/calendar-icon.svg';
 import commentIcon from '../../assets/comment-icon.svg';
-import { ArrowSquareOut, CalendarBlank, ChatCircle } from "phosphor-react";
+import { ArrowSquareOut } from "phosphor-react";
 import githubIcon from '../../assets/github-icon.svg';
 import { Tag } from "../Tag";
+import { Post } from "../../contexts/GithubContext";
+
+interface PostSummaryProps {
+  post: Post;
+}
 
 
-
-export function PostSummary() {
+export function PostSummary({ post }: PostSummaryProps) {
 
   return (
     <PostSummaryContainer>
@@ -23,11 +27,11 @@ export function PostSummary() {
         </span>
       </PostSummaryOptions>
       <PostSummaryHeader>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{post.title}</h1>
         <TagsArea>
-          <Tag icon={githubIcon} text="fabiomrm" href="https://github.com/fabiomrm" />
+          <Tag icon={githubIcon} text={post.user.login} href={`https://github.com/${post.user.login}`} />
           <Tag icon={calendarIcon} text="Há 1 dia" />
-          <Tag icon={commentIcon} text="5 comentários" />
+          <Tag icon={commentIcon} text={`${post.comments} comentário`} />
         </TagsArea>
       </PostSummaryHeader>
     </PostSummaryContainer>

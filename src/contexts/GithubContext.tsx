@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { api, dogApi } from "../api/api";
+import { api } from "../api/api";
 
 const USERNAME = "fabiomrm"
 const REPO = "github-blog-posts"
@@ -17,9 +17,11 @@ interface User {
 
 export interface Post {
   id: number;
+  number: number;
   title: string;
   user: User;
   body: string;
+  comments: number;
   created_at: string;
 }
 
