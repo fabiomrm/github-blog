@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { dogApi } from "../../api/api";
 import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
 import { Profile } from "../../components/Profile";

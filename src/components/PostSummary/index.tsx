@@ -2,32 +2,41 @@ import { PostSummaryContainer, PostSummaryHeader, PostSummaryOptions, TagsArea }
 import arrowLeftImg from '../../assets/arrow-left.svg';
 import calendarIcon from '../../assets/calendar-icon.svg';
 import commentIcon from '../../assets/comment-icon.svg';
-import { ArrowSquareOut, CalendarBlank, ChatCircle } from "phosphor-react";
+import { ArrowSquareOut } from "phosphor-react";
 import githubIcon from '../../assets/github-icon.svg';
 import { Tag } from "../Tag";
+import { Post } from "../../contexts/GithubContext";
+import { timeElapsedDateFormatter } from "../../utils/dateFormatter";
+import { useNavigate } from "react-router-dom";
+
+interface PostSummaryProps {
+  post: Post;
+}
 
 
+export function PostSummary({ post }: PostSummaryProps) {
 
-export function PostSummary() {
+  const navigate = useNavigate()
+
 
   return (
     <PostSummaryContainer>
       <PostSummaryOptions>
-        <span>
-          <img src={arrowLeftImg} alt="" />
+        <button onClick={() => navigate(-1)}>
+          <img src={arrowLeftImg} alt="seta para esquerda para voltar" />
           VOLTAR
-        </span>
-        <span>
+        </button>
+        <a href={post.html_url} target="_blank">
           VER NO GITHUB
           <ArrowSquareOut size={12} />
-        </span>
+        </a>
       </PostSummaryOptions>
       <PostSummaryHeader>
-        <h1>JavaScript data types and data structures</h1>
+        <h1>{post.title}</h1>
         <TagsArea>
-          <Tag icon={githubIcon} text="fabiomrm" href="https://github.com/fabiomrm" />
-          <Tag icon={calendarIcon} text="Há 1 dia" />
-          <Tag icon={commentIcon} text="5 comentários" />
+          <Tag icon={githubIcon} text={post.user.login} href={`https://github.com/${post.user.login}`} />
+          <Tag icon={calendarIcon} text={timeElapsedDateFormatter(new Date(post.created_at))} />
+          <Tag icon={commentIcon} text={`${post.comments} comentário`} />
         </TagsArea>
       </PostSummaryHeader>
     </PostSummaryContainer>

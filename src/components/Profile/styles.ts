@@ -29,7 +29,7 @@ export const TextContentHeader = styled.div`
     font-size: ${({ theme }) => theme.sizes["title-large"]};
   }
 
-  span {
+  a {
     display: inline-flex;
     color: ${({ theme }) => theme.colors["blue-500"]};
     font-size: 12px;

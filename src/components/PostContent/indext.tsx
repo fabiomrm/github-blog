@@ -1,16 +1,36 @@
 import { PostContentContainer } from "./styles";
+import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-export function PostContent() {
+interface PostContentProps {
+  postContent: string;
+}
+
+export function PostContent({ postContent }: PostContentProps) {
   return (
     <PostContentContainer>
-      <p>
-        <strong>Programming languages all have built-in data structures, but these often differ from one language to another.</strong> This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
-      </p>
-
-      <h3>Dynamic typing</h3>
-      <p>
-        JavaScript is a loosely typed and dynamic language. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types:
-      </p>
+      <ReactMarkdown
+        children={postContent}
+        components={{
+          code({ node, inline, className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || '')
+            return !inline && match ? (
+              <SyntaxHighlighter
+                children={String(children).replace(/\n$/, '')}
+                style={dark as any}
+                language={match[1]}
+                PreTag="div"
+                {...props}
+              />
+            ) : (
+              <code className={className} {...props}>
+                {children}
+              </code>
+            )
+          }
+        }}
+      />
     </PostContentContainer>
 
   )

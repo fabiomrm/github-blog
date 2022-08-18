@@ -18,7 +18,7 @@ export const PostSummaryOptions = styled.div`
   align-self: center;
   width: 100%;
 
-  span {
+  a, button {
     font-size: ${({ theme }) => theme.sizes.link};
     display: flex;
     justify-content: center;
@@ -26,6 +26,12 @@ export const PostSummaryOptions = styled.div`
     gap: .5rem;
     color: ${({ theme }) => theme.colors["blue-500"]};
   }
+
+  & > button {
+    background-color: transparent;
+    border: 0;
+  }
+  
 `;
 
 export const PostSummaryHeader = styled.div`
