@@ -35,7 +35,7 @@ export function Post() {
       {currentPost !== undefined ? (
         <>
           <PostSummary post={currentPost} />
-          <PostContent />
+          <PostContent postContent={currentPost.body} />
         </>
       ) : (
         <>

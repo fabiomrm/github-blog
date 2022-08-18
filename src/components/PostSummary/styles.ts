@@ -18,7 +18,7 @@ export const PostSummaryOptions = styled.div`
   align-self: center;
   width: 100%;
 
-  span {
+  a {
     font-size: ${({ theme }) => theme.sizes.link};
     display: flex;
     justify-content: center;

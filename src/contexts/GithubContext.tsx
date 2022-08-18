@@ -23,6 +23,7 @@ export interface Post {
   body: string;
   comments: number;
   created_at: string;
+  html_url: string;
 }
 
 interface GithubContextType {
