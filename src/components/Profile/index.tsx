@@ -17,10 +17,10 @@ export function Profile() {
       <TextContentArea>
         <TextContentHeader>
           <strong>{user.name}</strong>
-          <span>
+          <a href={`https://github.com/${user.login}`} target="_blank">
             GITHUB
             <ArrowSquareOut size={12} />
-          </span>
+          </a>
         </TextContentHeader>
         <TextContentBody>
           <p>{user.bio}</p>

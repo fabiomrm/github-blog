@@ -7,7 +7,7 @@ import githubIcon from '../../assets/github-icon.svg';
 import { Tag } from "../Tag";
 import { Post } from "../../contexts/GithubContext";
 import { timeElapsedDateFormatter } from "../../utils/dateFormatter";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface PostSummaryProps {
   post: Post;
@@ -16,13 +16,16 @@ interface PostSummaryProps {
 
 export function PostSummary({ post }: PostSummaryProps) {
 
+  const navigate = useNavigate()
+
+
   return (
     <PostSummaryContainer>
       <PostSummaryOptions>
-        <Link to="/">
+        <button onClick={() => navigate(-1)}>
           <img src={arrowLeftImg} alt="seta para esquerda para voltar" />
           VOLTAR
-        </Link>
+        </button>
         <a href={post.html_url} target="_blank">
           VER NO GITHUB
           <ArrowSquareOut size={12} />
