@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { api } from "../../api/api";
 import { Card } from "../../components/Card";
-import { Header } from "../../components/Header";
 import { Profile } from "../../components/Profile";
 import { SearchForm } from "../../components/SearchForm";
 import { useGithub } from "../../contexts/GithubContext";

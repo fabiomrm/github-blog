@@ -15,12 +15,13 @@ type SearchFormInput = z.infer<typeof searchFormSchema>
 
 export function SearchForm({ fetchPosts }: SearchFormProps) {
 
-  const { register, handleSubmit } = useForm<SearchFormInput>({
+  const { register, handleSubmit, reset } = useForm<SearchFormInput>({
     resolver: zodResolver(searchFormSchema)
   });
 
   async function handleFetchPosts(data: SearchFormInput) {
     fetchPosts(data.query)
+    reset()
   }
 
 
