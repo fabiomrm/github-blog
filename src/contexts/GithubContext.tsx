@@ -29,6 +29,7 @@ export interface Post {
 interface GithubContextType {
   user: User;
   posts: Post[];
+  setPosts: React.Dispatch<React.SetStateAction<Post[]>>
 }
 
 export const GithubContext = createContext({} as GithubContextType);
@@ -68,7 +69,7 @@ export function GithubContextProvider({ children }: { children: React.ReactNode 
 
 
   return (
-    <GithubContext.Provider value={{ user, posts }}>
+    <GithubContext.Provider value={{ user, posts, setPosts }}>
       {children}
     </GithubContext.Provider>
   )
